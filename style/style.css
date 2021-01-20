@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  min-height: 100vh;
+}
+
+.main-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 162px;
+  width: 162px;
+  border-radius: 81px;
+  margin: 0 22px;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+  background: #0c0c0c;
+}
+
+.main-circle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    #fb0094,#00f,#0f0,#ff0,#f00,#fb0094,#00f,#0f0,#ff0,#f00);
+  z-index: -1;
+  border-radius: 80px;
+  background-size: 200%;
+  opacity: 0;
+  transition: 0.5s;
+  animation: animate 20s linear infinite;
+}
+
+.main-circle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,#fb0094,#00f,#0f0,#ff0,#f00,#fb0094,#00f,#0f0,#ff0,#f00);
+  z-index: -1;
+  border-radius: 80px;
+  background-size: 200%;
+  opacity: 0;
+  filter: blur(20px);
+  transition: 0.5s;
+  animation: animate 5s linear infinite;
+}
+
+.main-circle:hover::before,
+.main-circle:hover::after {
+  opacity: 1;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 300% 0;
+  }
+  0% {
+    background-position: 0 0;
+  }
+}
+
+.audio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 160px;
+  width: 160px;
+  border-radius: 80px;
+  background: #0c0c0c;
+  z-index: 1;
+}
+
+.small-cirle {
+  position: absolute;
+  display: block;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.main-circle:hover .small-cirle {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.main-circle:active .small-cirle {
+  background-color: rgba(255, 255, 255, 1);
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+}
+
+.audio::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: -1;
+}
